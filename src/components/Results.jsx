@@ -1,18 +1,11 @@
 import React from 'react';
+import Card from './Card';
 
 export default function Results({ results }) {
   return (
-    <div className='grid max-w-6xl grid-cols-5 gap-3 p-3 mx-auto mt-8'>
+    <div className='grid max-w-6xl grid-cols-1 gap-3 p-3 mx-auto mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
       {results.length > 0 ? (
-        results.map((result, index) => (
-          <div key={index} className='p-3 border rounded-lg border-slate-300'>
-            <img
-              src={`http://image.tmdb.org/t/p/original/${result.poster_path}`}
-              className='w-full h-full max-h-[260px] object-contain rounded-lg overflow-hidden'
-            />
-            <h3>{result.title || result.name}</h3>
-          </div>
-        ))
+        results.map((result, index) => <Card result={result} index={index} />)
       ) : (
         <p>No results found</p>
       )}
