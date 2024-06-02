@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
@@ -9,7 +10,11 @@ const RoundNumber = ({ value }) => {
 export default function Card({ result, index }) {
   console.log(result);
   return (
-    <div key={result.id} className='border border-gray-400 dark:border-none dark:bg-gray-800'>
+    <Link
+      href={`/movie/${result.id}`}
+      key={result.id}
+      className='border border-gray-400 dark:border-none dark:bg-gray-800'
+    >
       <img
         src={`http://image.tmdb.org/t/p/original/${result.poster_path}`}
         className='object-cover max-h-[240px] sm:max-h-[300px] w-full h-full overflow-hidden'
@@ -27,6 +32,6 @@ export default function Card({ result, index }) {
         <h3 className='mb-1 text-base font-bold'>{result.title || result.name}</h3>
         <p className='text-gray-700 dark:text-gray-400 line-clamp-2'>{result.overview}</p>
       </div>
-    </div>
+    </Link>
   );
 }
