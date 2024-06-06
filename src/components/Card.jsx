@@ -8,7 +8,6 @@ const RoundNumber = ({ value }) => {
 };
 
 export default function Card({ result, index }) {
-  console.log(result);
   return (
     <Link
       href={`/movie/${result.id}`}
