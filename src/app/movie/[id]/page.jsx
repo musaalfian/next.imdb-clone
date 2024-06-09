@@ -20,8 +20,6 @@ export default async function MovieDetail({ params }) {
     </p>
   ));
 
-  console.log(movie);
-
   const RoundNumber = ({ value }) => {
     const roundedValue = parseFloat(value).toFixed(1);
     return <span className='text-gray-900 dark:text-white'>{roundedValue}</span>;
