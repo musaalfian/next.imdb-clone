@@ -46,7 +46,7 @@ export default function Results() {
     <>
       <Suspense>
         <SearchBox onSearch={handleSearch} />
-        <div className='grid max-w-6xl grid-cols-1 min-[420px]:grid-cols-2 gap-5 p-3 mx-auto mt-8 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+        <div className='grid max-w-6xl grid-cols-2 gap-2 sm:gap-5 p-3 mx-auto mt-8 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
           {movies.length > 0 ? (
             movies.map((result, index) => <Card key={result.id || index} result={result} index={index} />)
           ) : (

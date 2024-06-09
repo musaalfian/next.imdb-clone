@@ -8,11 +8,14 @@ const RoundNumber = ({ value }) => {
 };
 
 export default function Card({ result, index }) {
+  let title = result.title ? result.title : result.name;
+  const lineClamp = title.length > 12 ? 'line-clamp-2' : 'line-clamp-3';
+
   return (
     <Link
       href={`/movie/${result.id}`}
       key={result.id}
-      className='border border-gray-400 dark:border-none dark:bg-gray-800'
+      className='border overflow-hidden min-h-[400px] border-gray-400 dark:border-none dark:bg-gray-800'
     >
       <img
         src={`http://image.tmdb.org/t/p/original/${result.poster_path}`}
@@ -28,8 +31,8 @@ export default function Card({ result, index }) {
             <RoundNumber value={result.vote_average} />
           </div>
         </div>
-        <h3 className='mb-1 text-base font-bold'>{result.title || result.name}</h3>
-        <p className='text-gray-700 dark:text-gray-400 line-clamp-2'>{result.overview}</p>
+        <h3 className='mb-1 text-base font-bold line-clamp-2'>{result.title || result.name}</h3>
+        <p className={`text-gray-700 dark:text-gray-400 ${lineClamp}`}>{result.overview}</p>
       </div>
     </Link>
   );
